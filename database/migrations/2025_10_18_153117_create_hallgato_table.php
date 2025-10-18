@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('hallgato', function (Blueprint $table) {
             $table->id();
+            $table->string('nev');
+            $table->boolean('osztondijas')->default(0);
+            $table->unsignedInteger('kar_id');
             $table->timestamps();
         });
     }

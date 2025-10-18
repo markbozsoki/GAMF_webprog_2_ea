@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('masolas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('hallgato_id');
+            $table->string('datum');
+            $table->unsignedInteger('lap');
+            $table->unsignedInteger('oldal')->default(1);
             $table->timestamps();
         });
     }

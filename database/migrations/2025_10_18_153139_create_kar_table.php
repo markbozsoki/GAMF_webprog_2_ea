@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('kar', function (Blueprint $table) {
             $table->id();
+            $table->string('nev');
+            $table->unsignedInteger('kvota');
             $table->timestamps();
         });
     }

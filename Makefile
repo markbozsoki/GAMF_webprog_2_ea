@@ -25,6 +25,9 @@ artisan_migrate_status:
 artisan_migrate_refresh:
 	\php\php artisan migrate:refresh
 
+artisan_migrate_reset:
+	\php\php artisan migrate:reset
+
 artisan_migrate_fresh:
 	\php\php artisan migrate:fresh
 

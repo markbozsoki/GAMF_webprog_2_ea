@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kar', function (Blueprint $table) {
+        Schema::create('kars', function (Blueprint $table) {
             $table->id();
             $table->string('nev');
             $table->unsignedInteger('kvota');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kar');
+        Schema::dropIfExists('kars');
     }
 };

@@ -22,7 +22,10 @@
                     @if(Auth::user()->role === 'admin')
                         <li><a href="/admin" class="{{ Request::is('admin') ? 'active' : '' }}">Admin</a></li>
                     @endif
-                    <li><a href="/logout">Kijelentkezés</a></li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn">Kijelentkezés</button>
+                    </form>
                 @endguest
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

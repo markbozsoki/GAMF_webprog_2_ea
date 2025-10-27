@@ -99,6 +99,12 @@ h6 {
   font-family: var(--heading-font);
 }
 
+button,
+.btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
 /* Contact Form Messages
 ------------------------------*/
 .contact-form .error-message {

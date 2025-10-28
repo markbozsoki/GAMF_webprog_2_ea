@@ -35,20 +35,22 @@
         @yield('content')
     </main>
 
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+
+
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('aos/aos.js') }}"></script>
+
+    <!-- Main JS File -->
+    <script src="{{ asset('js/main.js') }}"></script>
+
+    @stack ('scripts')
+
 </body>
-
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-<!-- Preloader -->
-
-
-<!-- Vendor JS Files -->
-<script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('aos/aos.js') }}"></script>
-
-<!-- Main JS File -->
-<script src="{{ asset('js/main.js') }}"></script>
 
 </html>

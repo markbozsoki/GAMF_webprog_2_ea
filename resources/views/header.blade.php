@@ -11,7 +11,7 @@
                 <li><a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Főoldal</a></li>
                 <li><a href="/database" class="{{ Request::is('database') ? 'active' : '' }}">Adatbázis</a></li>
                 <li><a href="/crud" class="{{ Request::is('crud') ? 'active' : '' }}">CRUD</a></li>
-                <li><a href="/diagram" class="{{ Request::is('diagram') ? 'active' : '' }}">Diagram</a></li>
+                <li><a href="/chart" class="{{ Request::is('chart') ? 'active' : '' }}">Diagram</a></li>
                 <li><a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">Kapcsolat</a></li>
 
                 @guest

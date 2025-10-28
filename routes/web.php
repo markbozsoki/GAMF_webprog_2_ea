@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -18,3 +19,5 @@ Route::get('/admin', function () {
     }
     abort(403);
 })->name('admin');
+
+Route::get('/chart', [ChartController::class, 'showChart']);

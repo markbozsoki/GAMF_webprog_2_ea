@@ -2,6 +2,13 @@
 
 @section('content')
     <section id="login" class="section light-background">
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8">

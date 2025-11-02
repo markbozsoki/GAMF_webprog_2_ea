@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\MessagesController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -21,3 +22,5 @@ Route::get('/admin', function () {
 })->name('admin');
 
 Route::get('/chart', [ChartController::class, 'showChart']);
+
+Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');

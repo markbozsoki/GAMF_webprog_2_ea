@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KarSeeder::class);
         $this->call(HallgatoSeeder::class);
         $this->call(MasolasSeeder::class);
+        $this->call(MessagesSeeder::class);
     }
 }

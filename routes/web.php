@@ -6,7 +6,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessagesController;
+<<<<<<< HEAD
 use App\Http\Controllers\HallgatoController;
+=======
+use App\Http\Controllers\DatabaseCRUDController;
+>>>>>>> 6525ec6 (dummy_backend_base)
 
 Route::get('/', [HomeController::class, 'index']);
 

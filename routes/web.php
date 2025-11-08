@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\DatabaseCRUDController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -24,3 +26,8 @@ Route::get('/admin', function () {
 Route::get('/chart', [ChartController::class, 'showChart']);
 
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
+
+Route::post('/crud_create', [DatabaseCRUDController::class, 'create']);
+Route::get('/crud_read', [DatabaseCRUDController::class, 'read']);
+Route::put('/crud_update', [DatabaseCRUDController::class, 'update']);
+Route::delete('/crud_delete', [DatabaseCRUDController::class, 'delete']);

@@ -7,11 +7,8 @@ use App\Models\Hallgato;
 class DatabaseCRUDController extends Controller
 {
     public function read()
-    {
-        $hallgatok = Hallgato::all()
-            ->orderBy('id', 'asc')
-            ->get();
-
+    {   
+        $hallgatok = Hallgato::all();
         return view('CRUD', compact('hallgatok'));
     }
 

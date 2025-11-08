@@ -27,7 +27,8 @@ Route::get('/chart', [ChartController::class, 'showChart']);
 
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
 
-Route::post('/crud_create', [DatabaseCRUDController::class, 'create']);
+Route::redirect('/crud', '/crud_read');
 Route::get('/crud_read', [DatabaseCRUDController::class, 'read']);
+Route::post('/crud_create', [DatabaseCRUDController::class, 'create']);
 Route::put('/crud_update', [DatabaseCRUDController::class, 'update']);
 Route::delete('/crud_delete', [DatabaseCRUDController::class, 'delete']);

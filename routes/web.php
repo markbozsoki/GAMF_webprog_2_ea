@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessagesController;
-use App\Http\Controllers\DatabaseCRUDController;
+use App\Http\Controllers\HallgatoController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -27,8 +27,7 @@ Route::get('/chart', [ChartController::class, 'showChart']);
 
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
 
-Route::redirect('/crud', '/crud_read');
-Route::get('/crud_read', [DatabaseCRUDController::class, 'read']);
-Route::post('/crud_create', [DatabaseCRUDController::class, 'create']);
-Route::put('/crud_update', [DatabaseCRUDController::class, 'update']);
-Route::delete('/crud_delete', [DatabaseCRUDController::class, 'delete']);
+Route::redirect('/crud', '/hallgato');
+Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy']]);
+Route::get('hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
+

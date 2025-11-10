@@ -4,24 +4,89 @@
 
     <section id="crud" class="crud section dark-background">
         <h1>CRUD</h1>
+        
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="card shadow-sm border-0 rounded-4 p-4" data-aos="fade-up">
+                        <form method="PUT" action="{{ 'hallgato.update' }}">
+                            @csrf
+
+                            <input type="hidden" id="id" name="id" 
+                            @if($hallgato)
+                            value="{{ $hallgato->id }}"
+                            @endif
+                            >
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Név</label>
+                                <input type="text" class="form-control" id="name" name="name" required
+                                @if($hallgato)
+                                value="{{ $hallgato->nev }}"
+                                @endif
+                                >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="osztondij" class="form-label">Ösztöndíjas</label>
+                                <input type="checkbox" name="osztondij" class="switch-input"
+                                @if($hallgato && $hallgato->osztondijas == 1)
+                                    checked
+                                @endif
+                                >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="kar" class="form-label">Kar</label>
+                                <input type="text" class="form-control" id="kar" name="kar" required
+                                @if($hallgato)
+                                value="{{ $hallgato->kar_id }}"
+                                @endif
+                                >
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 mt-3">Beküldés</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="table-container">
             <div class="table-responsive" style="max-height:2500px; margin:0 auto; max-width:1400px; ">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Név</th>
-                            <th>Ösztöndíj</th>
+                            <th>Ösztöndíjas</th>
                             <th>Kar</th>
+                            <th>Módosítás</th>
+                            <th>Törlés</th>
                         </tr>
                     </thead>
                     <tbody id="crud-table-body">
                         @foreach($hallgatok as $hallgato)
                             <tr>
-                                <td>{{ $hallgato->id }}</td>
                                 <td>{{ $hallgato->nev }}</td>
-                                <td>{{ $hallgato->osztondijas }}</td>
+                                @if($hallgato->osztondijas == 1)
+                                <td>igen</td>
+                                @else
+                                <td>nem</td>
+                                @endif
                                 <td>{{ $hallgato->kar_id }}</td>
+                                <td>
+                                    <form method="GET" action="{{ route('hallgato.show', $hallgato->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Módosítás</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="GET" action="/hallgato/{{ $hallgato->id }}/destroy">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">Törlés</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

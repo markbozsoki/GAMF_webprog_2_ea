@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\HallgatoController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -24,3 +26,8 @@ Route::get('/admin', function () {
 Route::get('/chart', [ChartController::class, 'showChart']);
 
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
+
+Route::redirect('/crud', '/hallgato');
+Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy', 'update']]);
+Route::get('hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
+Route::put('hallgato/{id}/update', [HallgatoController::class, 'update']);

@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\HallgatoController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -31,3 +32,6 @@ Route::redirect('/crud', '/hallgato');
 Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy', 'update']]);
 Route::get('hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
 Route::put('hallgato/{id}/update', [HallgatoController::class, 'update']);
+
+Route::get('/contact', [ContactController::class, 'show']);
+Route::post('/contact', [ContactController::class, 'store']);

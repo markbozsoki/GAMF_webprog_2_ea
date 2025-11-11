@@ -8,7 +8,7 @@ class DatabaseViewController extends Controller
 {
     public function index()
     {   
-        $header = ["Név", "Térítés", "Kar", "Kari kvóta [oldal]", "Másolt mennyiség [oldal]", "Egyoldalas másolas [db]", "Kétoldalas másolas [db]", "Kvóta túllépés", "Önköltséges nyomtatás [oldal]", "Kvóta kihasználtság [%]"];
+        $header = ["Név", "Térítés", "Kar", "Kari kvóta [oldal]", "Össz. nyomtatott [oldal]", "Egyoldalas nyomtatás [db]", "Kétoldalas nyomtatás [db]", "Kvóta túllépés", "Önköltséges nyomtatás [oldal]", "Kvóta kihasználtság [%]"];
         $sources = Hallgato::with(['kar', 'masolas'])->get();
         
         $content = array();

@@ -17,7 +17,9 @@
                     <tbody id="database-table-body">
                         @foreach($content as $row)
                             <tr>
-                                <td>{{ $row }}</td>
+                                @foreach($row as $attr)
+                                <td>{{ $attr }}</td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>

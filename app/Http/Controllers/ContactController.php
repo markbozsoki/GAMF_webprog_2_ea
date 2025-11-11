@@ -21,7 +21,7 @@ class ContactController extends Controller
                 'subject' => $request->subject,
                 'message' => $request->body,
             ]
-);
+        );
 
         return view('contact')->with('success', 'Sent');
     }

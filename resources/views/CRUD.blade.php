@@ -12,7 +12,7 @@
                         <form method="PUT" action="{{ 'hallgato.update' }}">
                             @csrf
 
-                            <input type="hidden" id="id" name="id" 
+                            <input type="hidden" id="h_id" name="h_id" 
                             @if($hallgato)
                             value="{{ $hallgato->id }}"
                             @endif
@@ -29,9 +29,12 @@
 
                             <div class="mb-3">
                                 <label for="osztondij" class="form-label">Ösztöndíjas</label>
-                                <input type="checkbox" name="osztondij" class="switch-input"
+                                <input type="checkbox" class="switch-input" id="osztondij" name="osztondij"
                                 @if($hallgato && $hallgato->osztondijas == 1)
                                     checked
+                                    value="1"
+                                @else
+                                    value="0"
                                 @endif
                                 >
                             </div>

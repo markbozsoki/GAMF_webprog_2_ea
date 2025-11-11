@@ -23,11 +23,7 @@ class HallgatoController extends Controller
      */
     public function create()
     {
-        $hallgato = new Hallgato();
-        $hallgato->nev = "Példa Elek";
-        $hallgato->osztondijas = 0;
-        $hallgato->kar_id = 7;
-        $hallgato->save();
+        //
     }
 
     /**
@@ -35,11 +31,7 @@ class HallgatoController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $hallgato = new Hallgato();
-        $hallgato->nev = "Példa Elek";
-        $hallgato->osztondijas = 0;
-        $hallgato->kar_id = 7;
-        return redirect()->route('hallgato.index')->with('success', 'Created');
+        //
     }
 
     /**
@@ -65,12 +57,26 @@ class HallgatoController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-        $hallgato = Hallgato::where('id', $id)->first();
-        $hallgato->nev = "Példa Elemér";
-        $hallgato->osztondijas = 1;
-        $hallgato->kar_id = 2;
-        $hallgato->save();
-    
+        if ($request->osztondij == "1") {
+            $hallgato = Hallgato::updateOrCreate([
+                'id' => $request->h_id,
+            ],
+            [
+                'nev' => $request->name,
+                'osztondijas' => $request->osztondij,
+                'kar_id' => $request->kar,
+            ]);
+        }
+        else {
+            $hallgato = Hallgato::updateOrCreate([
+                'id' => $request->h_id,
+            ],
+            [
+                'nev' => $request->name,
+                'osztondijas' => "0",
+                'kar_id' => $request->kar,
+            ]);
+        }
         return redirect()->route('hallgato.index')->with('success', 'Updated');
     }
 

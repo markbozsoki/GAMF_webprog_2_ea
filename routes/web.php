@@ -28,6 +28,6 @@ Route::get('/chart', [ChartController::class, 'showChart']);
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
 
 Route::redirect('/crud', '/hallgato');
-Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy']]);
+Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy', 'update']]);
 Route::get('hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
-
+Route::put('hallgato/{id}/update', [HallgatoController::class, 'update']);

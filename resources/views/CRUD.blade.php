@@ -9,12 +9,23 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8">
                     <div class="card shadow-sm border-0 rounded-4 p-4" data-aos="fade-up">
-                        <form method="PUT" action="{{ 'hallgato.update' }}">
+                            
+                        <h2 style="color:black;" class="text-center mb-4">
+                            @if($hallgato)
+                            Hallgató módosítása
+                            @else
+                            Új hallgató hozzáadása
+                            @endif
+                        </h2>                            
+                                            
+                        <form method="POST" action="/hallgato/store">
                             @csrf
 
                             <input type="hidden" id="h_id" name="h_id" 
                             @if($hallgato)
                             value="{{ $hallgato->id }}"
+                            @else
+                            value="-1"
                             @endif
                             >
 
@@ -27,21 +38,18 @@
                                 >
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                                 <label for="osztondij" class="form-label">Ösztöndíjas</label>
-                                <input type="checkbox" class="switch-input" id="osztondij" name="osztondij"
-                                @if($hallgato && $hallgato->osztondijas == 1)
-                                    checked
-                                    value="1"
-                                @else
-                                    value="0"
+                                <input type="number" class="form-control" id="osztondij" name="osztondij" min="0" max="1" required
+                                @if($hallgato)
+                                value="{{ $hallgato->osztondijas }}"
                                 @endif
                                 >
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                                 <label for="kar" class="form-label">Kar</label>
-                                <input type="text" class="form-control" id="kar" name="kar" required
+                                <input type="number" class="form-control" id="kar" name="kar" min="1" required
                                 @if($hallgato)
                                 value="{{ $hallgato->kar_id }}"
                                 @endif
@@ -49,8 +57,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 mt-3">Beküldés</button>
+                            <a href="/hallgato"  class="btn btn-primary w-100 mt-3">Mégse</a>
                         </form>
-
                     </div>
                 </div>
             </div>

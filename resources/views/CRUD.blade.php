@@ -48,8 +48,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 mt-3">Beküldés</button>
+                            <a href="/hallgato"  class="btn btn-primary w-100 mt-3">Mégse</a>
                         </form>
-
                     </div>
                 </div>
             </div>

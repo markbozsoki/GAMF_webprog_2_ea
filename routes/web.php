@@ -30,9 +30,9 @@ Route::get('/chart', [ChartController::class, 'showChart']);
 Route::get('/messages', [MessagesController::class, 'showMessages'])->name('messages');
 
 Route::redirect('/crud', '/hallgato');
-Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy', 'update']]);
-Route::get('hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
-Route::put('hallgato/{id}/update', [HallgatoController::class, 'update']);
+Route::resource('/hallgato', HallgatoController::class, ['except' => ['destroy', 'store']]);
+Route::get('/hallgato/{id}/destroy', [HallgatoController::class, 'destroy']);
+Route::post('/hallgato/store', [HallgatoController::class, 'store']);
 
 Route::get('/contact', [ContactController::class, 'show']);
 Route::post('/contact', [ContactController::class, 'store']);

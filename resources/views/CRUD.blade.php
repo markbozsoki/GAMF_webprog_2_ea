@@ -9,6 +9,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8">
                     <div class="card shadow-sm border-0 rounded-4 p-4" data-aos="fade-up">
+                            
+                        <h2 style="color:black;" class="text-center mb-4">
+                            @if($hallgato)
+                            Hallgató módosítása
+                            @else
+                            Új hallgató hozzáadása
+                            @endif
+                        </h2>                            
+                                            
                         <form method="POST" action="/hallgato/store">
                             @csrf
 

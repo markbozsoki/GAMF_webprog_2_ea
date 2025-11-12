@@ -38,8 +38,8 @@ class HallgatoController extends Controller
             $hallgato->osztondijas = $request->osztondij;
             $hallgato->save();
         } else {
-            $hallgato = new Hallgato();
-            $hallgato->nev = "TEST TEST";
+            $hallgato = Hallgato::where('id', $request->h_id)->first();
+            $hallgato->nev = $request->name;
             $hallgato->kar_id = $request->kar;
             $hallgato->osztondijas = $request->osztondij;
             $hallgato->save();
